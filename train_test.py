@@ -86,12 +86,7 @@ def train(model,
                 logging.info(f"epoch {epoch} batch {i} weights.shape {weights.shape}")
             else:
                 logging.debug(f"epoch {epoch} batch {i} weights.shape {weights.shape}")
-            logging.debug("stats: " +\
-                f"idxs_selected.shape {idxs_selected.shape}, " +\
-                f"filtered for batch {i} idxs_selected.shape {idxs_selected[batchsize*i:min(batchsize*(i+1),T-lookback),:].shape}, " +\
-                f"weights.shape {weights.shape}, " +\
-                f"batch period len {min(batchsize*(i+1),T) - batchsize*i}"
-            )
+            logging.debug("stats: %s%s%s%s", f"idxs_selected.shape {idxs_selected.shape}, ", f"filtered for batch {i} idxs_selected.shape {idxs_selected[batchsize*i:min(batchsize*(i+1),T-lookback),:].shape}, ", f"weights.shape {weights.shape}, ", f"batch period len {min(batchsize*(i+1),T) - batchsize*i}")
             # weights[idxs_selected[batchsize*i:min(batchsize*(i+1),T-lookback),:]] = model(torch.tensor(windows[batchsize*i:min(batchsize*(i+1),T-lookback)][idxs_selected[batchsize*i:min(batchsize*(i+1),T-lookback),:]],device=device)) 
             idxs_batch_i = idxs_selected[batchsize*i:min(batchsize*(i+1),T-lookback),:]  # idxs of valid residuals to trade in batch i
             input_data_batch_i = windows[batchsize*i:min(batchsize*(i+1),T-lookback)][idxs_batch_i]  
