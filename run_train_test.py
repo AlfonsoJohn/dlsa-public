@@ -179,7 +179,7 @@ def run(config:dict,
                             + ""
                             # + "".join([f"__{config['model'][k]}{k}" for k in config['model'] if k != 'lookback']) \
                             # + f"__{int(time.time())}" \
-            logging.info('STARTING: ' + model_tag)
+            logging.info("STARTING: %s", model_tag)
             
             if gpu_device_ids is None:
                 if   config['model']['lookback'] == 30 and config['length_training'] == 1000:

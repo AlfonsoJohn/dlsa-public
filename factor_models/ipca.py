@@ -415,7 +415,7 @@ class IPCA:
                         dGamma = np.max(np.abs(self._Gamma - Gamma))
                         self._Gamma = Gamma
                         if printOnConsole and nIter % printFreq == 0:
-                            logging.info('nFactor: %d\t, nWindow: %d/%d\t, nIter: %d\t, dGamma: %0.2e' %(nFactors,nWindow,nWindows,nIter,dGamma))
+                            logging.info('nFactor: %d\t, nWindow: %d/%d\t, nIter: %d\t, dGamma: %0.2e', nFactors, nWindow, nWindows, nIter, dGamma)
                         if nIter > 1 and dGamma < tol:
                             break
                 else:
@@ -427,7 +427,7 @@ class IPCA:
                         dGamma = np.max(np.abs(self._Gamma - Gamma))
                         self._Gamma = Gamma
                         if printOnConsole and nIter % printFreq == 0:
-                            logging.info('nFactor: %d\t, nWindow: %d/%d\t, nIter: %d\t, dGamma: %0.2e' %(nFactors,nWindow,nWindows,nIter,dGamma))
+                            logging.info('nFactor: %d\t, nWindow: %d/%d\t, nIter: %d\t, dGamma: %0.2e', nFactors, nWindow, nWindows, nIter, dGamma)
                         if nIter > 1 and dGamma < tol:
                             break
                     
@@ -435,7 +435,7 @@ class IPCA:
                 residualsOOS[(nWindow*sizeWindow):((nWindow+1)*sizeWindow),:][mask[(initialMonths+nWindow*sizeWindow):(initialMonths+(nWindow+1)*sizeWindow),:]] = np.squeeze(np.concatenate(residual_list))
                 
             if printOnConsole:                
-                logging.info('Finished! (nFactors = %d)' %nFactors)
+                logging.info('Finished! (nFactors = %d)', nFactors)
             if save:
                 np.save(os.path.join(self._logdir, 'IPCA_OOSresiduals_%d_factors_%d_initialMonths_%d_window.npy' %(nFactors,initialMonths,sizeWindow)), residualsOOS)
         return residualsOOS
@@ -549,7 +549,7 @@ class IPCA:
                                 dGamma = np.max(np.abs(self._Gamma - Gamma))
                                 self._Gamma = Gamma
                                 if printOnConsole and nIter % printFreq == 0:
-                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e' % (nFactors,nWindow,nWindows,nIter,dGamma))
+                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e', nFactors, nWindow, nWindows, nIter, dGamma)
                                 if nIter > 1 and dGamma < tol:
                                     break
                             if save_gamma:                            
@@ -568,7 +568,7 @@ class IPCA:
                                 dGamma = np.max(np.abs(self._Gamma - Gamma))
                                 self._Gamma = Gamma
                                 if printOnConsole and nIter % printFreq == 0:
-                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e' %(nFactors,nWindow,nWindows,nIter,dGamma))
+                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e', nFactors, nWindow, nWindows, nIter, dGamma)
                                 if nIter > 1 and dGamma < tol:
                                     break
                             if save_gamma:
@@ -663,7 +663,7 @@ class IPCA:
                     counter += 1
                     
             if printOnConsole:                
-                logging.info('Finished (nFactors = %d)' %nFactors)
+                logging.info('Finished (nFactors = %d)', nFactors)
             if save and not skip_oos:
                 rsavepath = os.path.join(self._logdir, f"IPCA_DailyOOSresiduals_{nFactors}_factors_{initialMonths}_initialMonths_{sizeWindow}_window_{CapProportion}_cap.npy")
                 msavepath = os.path.join(self._logdir, f"IPCA_DailyMatrixOOSresiduals_{nFactors}_factors_{initialMonths}_initialMonths_{sizeWindow}_window_{CapProportion}_cap.npy")
@@ -772,7 +772,7 @@ class IPCA:
                                 dGamma = np.max(np.abs(self._Gamma - Gamma))
                                 self._Gamma = Gamma
                                 if printOnConsole and nIter % printFreq == 0:
-                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e' %(nFactors,nWindow,nWindows,nIter,dGamma))
+                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e', nFactors, nWindow, nWindows, nIter, dGamma)
                                 if nIter > 1 and dGamma < tol:
                                     break
                         else:
@@ -784,7 +784,7 @@ class IPCA:
                                 dGamma = np.max(np.abs(self._Gamma - Gamma))
                                 self._Gamma = Gamma
                                 if printOnConsole and nIter % printFreq == 0:
-                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e' %(nFactors,nWindow,nWindows,nIter,dGamma))
+                                    logging.info('nFactor: %d,\t nWindow: %d/%d,\t nIter: %d,\t dGamma: %0.2e', nFactors, nWindow, nWindows, nIter, dGamma)
                                 if nIter > 1 and dGamma < tol:
                                     break
                         if save_gamma:
@@ -851,7 +851,7 @@ class IPCA:
                     counter += 1
                     
             if printOnConsole:                
-                logging.info('Finished! (nFactors = %d)' %nFactors)
+                logging.info('Finished! (nFactors = %d)', nFactors)
             if save and not skip_oos:
                 rsavepath = os.path.join(self._logdir, f"IPCA_DailyOOSresiduals_{nFactors}_factors_{initialMonths}_initialMonths_{sizeWindow}_window_{CapProportion}_cap.npy")
                 msavepath = os.path.join(self._logdir, f"IPCA_DailyMatrixOOSresiduals_{nFactors}_factors_{initialMonths}_initialMonths_{sizeWindow}_window_{CapProportion}_cap.npy")
