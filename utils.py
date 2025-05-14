@@ -132,7 +132,7 @@ def send_twilio_message(message: str, to: str):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     try:
         with open(os.path.join(dir_path, "credentials.yaml"), 'r') as f:
-            credentials = yaml.load(f)
+            credentials = yaml.load(f, Loader=yaml.SafeLoader)
     except Exception as e:
         logging.warning("Could not load credentials.yaml file", exc_info=e)
         return
